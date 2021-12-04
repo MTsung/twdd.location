@@ -3,6 +3,7 @@
 namespace Mtsung\TwddLocation\Console;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 use pcrov\JsonReader\JsonReader;
 
@@ -28,7 +29,7 @@ class MakeTwCityRange extends Command
      */
     public function handle()
     {
-        $outputPath = '/twdd-location/tw_city_range.json';
+        $outputPath = Config::get('twdd-location.output.tw_city_range');
         $cityPath = dirname(__DIR__) . '/RawData/COUNTY_MOI_1090820.geojson';
 
         $reader = new JsonReader();

@@ -9,7 +9,6 @@ class TwddLocationServiceProvider extends ServiceProvider
 {
     public function register()
     {
-
     }
 
     public function boot()
@@ -19,5 +18,6 @@ class TwddLocationServiceProvider extends ServiceProvider
                 MakeTwCityRange::class,
             ]);
         }
+        $this->mergeConfigFrom(__DIR__ . '/config.php', 'twdd-location');
     }
 }
