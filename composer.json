@@ -11,5 +11,12 @@
     "require": {
         "mjaschen/phpgeo": "^4.0",
         "pcrov/jsonreader": "^1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mtsung\\TwddLocation\\TwddLocationServiceProvider"
+            ]
+        }
     }
 }
