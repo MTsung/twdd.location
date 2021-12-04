@@ -38,12 +38,12 @@ class TwddLocation
         return $this->searchProperties($searchLocation, $districts, 'district');
     }
 
-    private function searchProperties($searchLocation, $data, $type){
+    private function searchProperties($searchLocation, $data, $type)
+    {
         foreach ($data as $item) {
-            dump($item);
-            $fileName = Storage::path(Config::get('twdd-location.output_path.tw_'.$type.'_path') . '/' . $item->{$type.'_code'} . '.geojson');
+            $fileName = Storage::path(Config::get('twdd-location.output_path.tw_' . $type . '_path') . '/' . $item->{$type . '_code'} . '.geojson');
             if (!is_file($fileName)) {
-                throw new \Exception('Please run php artisan twdd-location:split-tw-'.$type.'-geojson');
+                throw new \Exception('Please run php artisan twdd-location:split-tw-' . $type . '-geojson');
             }
 
             $reader = new JsonReader();
