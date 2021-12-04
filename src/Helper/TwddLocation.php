@@ -30,4 +30,23 @@ class TwddLocation
             ->where('limit_location.max_lat', '>=', $lat)
             ->where('limit_location.max_lng', '>=', $lng);
     }
+
+    /**
+     * 取得可能的鄉鎮
+     *
+     * @param [type] $lat
+     * @param [type] $lng
+     * @return Collection
+     */
+    public function getPossibleDistricts($lat, $lng): Collection
+    {
+        $twDistrictRange = Storage::get(Config::get('twdd-location.output.tw_district_range'));
+        $twDistrictRange = json_decode($twDistrictRange);
+        $twDistrictRange = collect($twDistrictRange);
+        return $twDistrictRange
+            ->where('limit_location.min_lat', '<=', $lat)
+            ->where('limit_location.min_lng', '<=', $lng)
+            ->where('limit_location.max_lat', '>=', $lat)
+            ->where('limit_location.max_lng', '>=', $lng);
+    }
 }

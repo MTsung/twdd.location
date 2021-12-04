@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 use pcrov\JsonReader\JsonReader;
 
-class MakeTwCityRange extends Command
+class MakeTwDistrictRange extends Command
 {
-    protected $signature = 'twdd-location:make-tw-city-range';
-    protected $description = '產生縣市範圍';
+    protected $signature = 'twdd-location:make-tw-district-range';
+    protected $description = '產生鄉鎮區範圍';
     private $minLat;
     private $minLng;
     private $maxLat;
@@ -29,8 +29,8 @@ class MakeTwCityRange extends Command
      */
     public function handle()
     {
-        $outputPath = Config::get('twdd-location.output.tw_city_range');
-        $cityPath = Config::get('twdd-location.input.city_geojson');
+        $outputPath = Config::get('twdd-location.output.tw_district_range');
+        $cityPath = Config::get('twdd-location.input.district_geojson');
 
         $reader = new JsonReader();
         $reader->open($cityPath);
@@ -48,8 +48,10 @@ class MakeTwCityRange extends Command
             }
 
             $temp = [];
-            $temp['city_code'] = str_pad($feature['properties']['行政區域代碼'], 5, "0", STR_PAD_LEFT);
-            $temp['city_name'] = $feature['properties']['名稱'];
+            $temp['city_code'] = str_pad($feature['properties']['TOWNCODE'], 8, "0", STR_PAD_LEFT);
+            $temp['city_name'] = $feature['properties']['COUNTYNAME'];
+            $temp['district_code'] = str_pad($feature['properties']['COUNTYCODE'], 5, "0", STR_PAD_LEFT);
+            $temp['district_name'] = $feature['properties']['TOWNNAME'];
 
             if ($feature['geometry']['type'] === 'MultiPolygon') {
                 foreach ($coordinates as $coordinate) {
