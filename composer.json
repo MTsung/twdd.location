@@ -1,0 +1,15 @@
+{
+    "name": "mtsung/twdd-location",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MTsung",
+            "email": "MTsung103035@gmail.com"
+        }
+    ],
+    "require": {
+        "mjaschen/phpgeo": "^4.0",
+        "pcrov/jsonreader": "^1.0"
+    }
+}
