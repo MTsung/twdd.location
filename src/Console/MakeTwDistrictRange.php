@@ -48,9 +48,9 @@ class MakeTwDistrictRange extends Command
             }
 
             $temp = [];
-            $temp['city_code'] = str_pad($feature['properties']['COUNTYCODE'], 8, "0", STR_PAD_LEFT);
+            $temp['city_code'] = str_pad($feature['properties']['COUNTYCODE'], 5, "0", STR_PAD_LEFT);
             $temp['city_name'] = $feature['properties']['COUNTYNAME'];
-            $temp['district_code'] = str_pad($feature['properties']['TOWNCODE'], 5, "0", STR_PAD_LEFT);
+            $temp['district_code'] = str_pad($feature['properties']['TOWNCODE'], 8, "0", STR_PAD_LEFT);
             $temp['district_name'] = $feature['properties']['TOWNNAME'];
 
             if ($feature['geometry']['type'] === 'MultiPolygon') {
