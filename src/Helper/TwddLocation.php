@@ -1,7 +1,7 @@
 <?php
-namespace Mtsung\TwLocationToCity\Helper;
+namespace Mtsung\TwddLocation\Helper;
 
-class TwLocationToCity
+class TwddLocation
 {
     public function __construct()
     {

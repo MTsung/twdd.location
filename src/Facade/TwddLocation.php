@@ -1,9 +1,9 @@
 <?php
-namespace Mtsung\TwLocationToCity\Facade;
+namespace Mtsung\TwddLocation\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
 class TwddLocation extends Facade
 {
-    protected static function getFacadeAccessor() { return TwLocationToCity::class; }
+    protected static function getFacadeAccessor() { return \Mtsung\TwddLocation\Helper\TwddLocation::class; }
 }
