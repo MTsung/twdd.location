@@ -34,7 +34,7 @@ class MakeTwCityRange extends Command
 
         $reader = new JsonReader();
         $reader->open($cityPath);
-        $reader->read("features");
+        $reader->read('features');
         $depth = $reader->depth();
         $reader->read();
         $out = [];
