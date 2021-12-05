@@ -24,5 +24,10 @@
                 "Mtsung\\TwddLocation\\TwddLocationServiceProvider"
             ]
         }
+    },
+    "autoload": {
+        "psr-4": {
+            "Mtsung\\TwddLocation\\": "src/"
+        }
     }
 }
