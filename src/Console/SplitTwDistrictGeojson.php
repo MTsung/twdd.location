@@ -5,6 +5,7 @@ namespace Mtsung\TwddLocation\Console;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
+use Mtsung\TwddLocation\Facade\TwddDistrict;
 use pcrov\JsonReader\JsonReader;
 
 class SplitTwDistrictGeojson extends Command
@@ -39,6 +40,8 @@ class SplitTwDistrictGeojson extends Command
                 continue;
             }
 
+            $districtCode = str_pad($feature['properties']['TOWNCODE'], 8, "0", STR_PAD_LEFT);
+            $zipCode = TwddDistrict::getInfoByDistrictCode($districtCode)['zip_code'] ?? 0;
             $out = [
                 'type' => 'FeatureCollection',
                 'features' => [
@@ -51,8 +54,9 @@ class SplitTwDistrictGeojson extends Command
                         'properties' => [
                             'city_code' => str_pad($feature['properties']['COUNTYCODE'], 5, "0", STR_PAD_LEFT),
                             'city_name' => $feature['properties']['COUNTYNAME'],
-                            'district_code' => str_pad($feature['properties']['TOWNCODE'], 8, "0", STR_PAD_LEFT),
+                            'district_code' => $districtCode,
                             'district_name' => $feature['properties']['TOWNNAME'],
+                            'zip_code' => $zipCode,
                         ],
                     ],
                 ],

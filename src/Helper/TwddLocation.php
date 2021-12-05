@@ -105,7 +105,7 @@ class TwddLocation
      * @param [type] $lng
      * @return Collection
      */
-    public function getPossibleCitys($lat, $lng): Collection
+    private function getPossibleCitys($lat, $lng): Collection
     {
         $fileName = Config::get('twdd-location.output.tw_city_range');
         if (!Storage::has($fileName)) {
@@ -130,7 +130,7 @@ class TwddLocation
      * @param [type] $lng
      * @return Collection
      */
-    public function getPossibleDistricts($lat, $lng): Collection
+    private function getPossibleDistricts($lat, $lng): Collection
     {
         $fileName = Config::get('twdd-location.output.tw_district_range');
         if (!Storage::has($fileName)) {
