@@ -1,5 +1,7 @@
 # 台灣位置資訊工具
 
+for Laravel 6 7 8
+
 ## Install
 
 1. run `composer require mtsung/twdd.location`
@@ -11,7 +13,7 @@
 
 ## 使用方式
 
-### 座標轉地區
+### 使用座標查詢縣市鄉鎮區
 
 ```php
 use Mtsung\TwddLocation\Facade\TwddLocation;
@@ -42,7 +44,7 @@ $res = TwddLocation::getDistrict(39.256422, 140.986340);
 // null
 ```
 
-### zip code 或 district code 查詢
+### 使用 zip code 或 district code 查詢鄉鎮區
 ```php
 use Mtsung\TwddLocation\Facade\TwddDistrict;
 
