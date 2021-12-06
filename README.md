@@ -9,8 +9,8 @@ for Laravel 6 7 8
 3. run `php artisan twdd-location:make-tw-district-range`
 4. run `php artisan twdd-location:split-tw-city-geojson`
 5. run `php artisan twdd-location:split-tw-district-geojson`
-6. run test `vendor/bin/phpunit .\vendor\mtsung\twdd.location\tests\TestLocation.php`
-7. run test `vendor/bin/phpunit .\vendor\mtsung\twdd.location\tests\TestDistrict.php`
+6. run test `vendor/bin/phpunit ./vendor/mtsung/twdd.location/tests/TestLocation.php`
+7. run test `vendor/bin/phpunit ./vendor/mtsung/twdd.location/tests/TestDistrict.php`
 
 ## Lumen
 
