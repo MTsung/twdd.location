@@ -12,6 +12,15 @@ for Laravel 6 7 8
 6. run test `vendor/bin/phpunit .\vendor\mtsung\twdd.location\tests\TestLocation.php`
 7. run test `vendor/bin/phpunit .\vendor\mtsung\twdd.location\tests\TestDistrict.php`
 
+## Lumen
+
+`bootstrap/app.php` file:
+
+```php
+$app->register(\Mtsung\TwddLocation\TwddLocationServiceProvider::class);
+```
+
+
 ## 使用方式
 
 ### 使用座標查詢縣市鄉鎮區

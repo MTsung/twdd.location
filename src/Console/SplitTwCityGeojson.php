@@ -34,10 +34,11 @@ class SplitTwCityGeojson extends Command
         $reader->read();
         do {
             $feature = $reader->value();
-            $coordinates = $feature['geometry']['coordinates'];
-            if (is_null($coordinates)) {
+
+            if (is_null($feature['geometry'])) {
                 continue;
             }
+            $coordinates = $feature['geometry']['coordinates'];
 
             $out = [
                 'type' => 'FeatureCollection',

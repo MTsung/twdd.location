@@ -42,10 +42,11 @@ class MakeTwCityRange extends Command
             $feature = $reader->value();
 
             $this->resetLoction();
-            $coordinates = $feature['geometry']['coordinates'];
-            if (is_null($coordinates)) {
+
+            if (is_null($feature['geometry'])) {
                 continue;
             }
+            $coordinates = $feature['geometry']['coordinates'];
 
             $temp = [];
             $temp['city_code'] = str_pad($feature['properties']['行政區域代碼'], 5, "0", STR_PAD_LEFT);
