@@ -76,8 +76,6 @@ class MakeTwCityRange extends Command
 
         Storage::put($outputPath, json_encode($out, JSON_UNESCAPED_UNICODE));
         $reader->close();
-
-        return Command::SUCCESS;
     }
 
     private function resetLoction()

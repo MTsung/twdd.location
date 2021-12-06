@@ -66,7 +66,5 @@ class SplitTwDistrictGeojson extends Command
         } while ($reader->next() && $reader->depth() > $depth);
 
         $reader->close();
-
-        return Command::SUCCESS;
     }
 }
