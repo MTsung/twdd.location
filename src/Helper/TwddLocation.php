@@ -3,7 +3,6 @@ namespace Mtsung\TwddLocation\Helper;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Storage;
 use Location\Coordinate;
 use Location\Polygon;
 use pcrov\JsonReader\JsonReader;
@@ -41,11 +40,7 @@ class TwddLocation
     private function searchProperties($searchLocation, $data, $type)
     {
         foreach ($data as $item) {
-            $fileName = Storage::path(Config::get('twdd-location.output_path.tw_' . $type . '_path') . '/' . $item->{$type . '_code'} . '.geojson');
-            if (!is_file($fileName)) {
-                throw new \Exception('Please run php artisan twdd-location:split-tw-' . $type . '-geojson');
-            }
-
+            $fileName = Config::get('twdd-location.output_path.tw_' . $type . '_path') . '/' . $item->{$type . '_code'} . '.geojson';
             $reader = new JsonReader();
             $reader->open($fileName);
 
@@ -108,11 +103,7 @@ class TwddLocation
     private function getPossibleCitys($lat, $lng): Collection
     {
         $fileName = Config::get('twdd-location.output.tw_city_range');
-        if (!Storage::has($fileName)) {
-            throw new \Exception('Please run php artisan twdd-location:make-tw-city-range');
-        }
-
-        $twCityRange = Storage::get($fileName);
+        $twCityRange = file_get_contents($fileName);
         $twCityRange = json_decode($twCityRange);
         $twCityRange = collect($twCityRange);
         return $twCityRange
@@ -133,11 +124,7 @@ class TwddLocation
     private function getPossibleDistricts($lat, $lng): Collection
     {
         $fileName = Config::get('twdd-location.output.tw_district_range');
-        if (!Storage::has($fileName)) {
-            throw new \Exception('Please run php artisan twdd-location:make-tw-district-range');
-        }
-
-        $twDistrictRange = Storage::get($fileName);
+        $twDistrictRange = file_get_contents($fileName);
         $twDistrictRange = json_decode($twDistrictRange);
         $twDistrictRange = collect($twDistrictRange);
         return $twDistrictRange

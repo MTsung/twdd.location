@@ -4,7 +4,6 @@ namespace Mtsung\TwddLocation\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Storage;
 use pcrov\JsonReader\JsonReader;
 
 class SplitTwCityGeojson extends Command
@@ -57,7 +56,7 @@ class SplitTwCityGeojson extends Command
                 ],
             ];
 
-            Storage::put($outputPath . '/' . $out['features'][0]['properties']['city_code'] . '.geojson', json_encode($out, JSON_UNESCAPED_UNICODE));
+            file_put_contents($outputPath . '/' . $out['features'][0]['properties']['city_code'] . '.geojson', json_encode($out, JSON_UNESCAPED_UNICODE));
         } while ($reader->next() && $reader->depth() > $depth);
 
         $reader->close();

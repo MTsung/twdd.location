@@ -4,7 +4,6 @@ namespace Mtsung\TwddLocation\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Storage;
 use pcrov\JsonReader\JsonReader;
 
 class MakeTwCityRange extends Command
@@ -74,7 +73,7 @@ class MakeTwCityRange extends Command
 
         } while ($reader->next() && $reader->depth() > $depth);
 
-        Storage::put($outputPath, json_encode($out, JSON_UNESCAPED_UNICODE));
+        file_put_contents($outputPath, json_encode($out, JSON_UNESCAPED_UNICODE));
         $reader->close();
     }
 

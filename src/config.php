@@ -6,11 +6,11 @@ return [
         'zipcode_json' => __DIR__ . '/RawData/zipcode.json',
     ],
     'output' => [
-        'tw_city_range' => '/twdd-location/tw_city_range.json',
-        'tw_district_range' => '/twdd-location/tw_district_range.json',
+        'tw_city_range' => __DIR__ . '/OutputData/tw_city_range.json',
+        'tw_district_range' => __DIR__ . '/OutputData/tw_district_range.json',
     ],
     'output_path' => [
-        'tw_city_path' =>  '/twdd-location/city',
-        'tw_district_path' =>  '/twdd-location/district',
+        'tw_city_path' =>  __DIR__ . '/OutputData/city',
+        'tw_district_path' =>  __DIR__ . '/OutputData/district',
     ],
 ];
