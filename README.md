@@ -19,7 +19,7 @@ $app->register(\Mtsung\TwddLocation\TwddLocationServiceProvider::class);
 
 ## 使用方式
 
-### 使用座標查詢縣市鄉鎮區
+### 使用經緯度查詢縣市鄉鎮區
 
 ```php
 use Mtsung\TwddLocation\Facade\TwddLocation;
