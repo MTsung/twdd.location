@@ -1,6 +1,6 @@
 # 台灣經緯度轉縣市工具
 
-for Laravel 6 7 8
+for Laravel >= 6
 
 ## Install
 
